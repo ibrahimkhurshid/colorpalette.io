@@ -1,0 +1,24 @@
+const express = require('express');
+const cors = require('cors');
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+const app = express();
+const PORT = process.env.PORT || 5000;
+
+app.use(cors());
+app.use(express.json());
+
+// Basic Health Check
+app.get('/', (req, res) => {
+  res.json({ message: 'ColorPalette.io API is running' });
+});
+
+// Database Connection (Placeholder)
+// mongoose.connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
+//   .then(() => console.log('MongoDB Connected'))
+//   .catch(err => console.log(err));
+
+app.listen(PORT, () => {
+  console.log(`Server running on port ${PORT}`);
+});
